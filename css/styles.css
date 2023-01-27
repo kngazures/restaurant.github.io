@@ -110,7 +110,7 @@ body{
 
 #intro{
     z-index: 5;
-    background-image: url('../assets/img/TheSteamedeHamme.png');
+    background-image: url('https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/TheSteamedeHamme.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
@@ -120,7 +120,7 @@ body{
 }
 #outside{
     z-index: 4;
-    background-image: url('../assets/vid/outside.gif');
+    background-image: url('https://github.com/kngazures/restaurant.github.io/tree/main/assets/vid/outside.gif');
 }
 #reception{
     z-index: 3;
@@ -130,7 +130,7 @@ body{
 }
 #table{
     z-index: 1;
-    background-image: url('../assets/img/wooden-table.png');
+    background-image: url('https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/wooden-table.png');
 }
 
 
@@ -172,7 +172,7 @@ body{
     -ms-box-shadow:inset 0 0 5px #666;
     box-shadow:inset 0 0 5px #666;
     font-weight:bold;
-    background-image: url("../assets/img/front2.jpg");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/front2.jpg");
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;              /* optional, center the image */
@@ -188,7 +188,7 @@ body{
     -ms-box-shadow:inset 0 0 5px #666;
     box-shadow:inset 0 0 5px #666;
     font-weight:bold;
-    background-image: url("../assets/img/front.jpg");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/front.jpg");
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;              /* optional, center the image */
@@ -202,55 +202,55 @@ body{
     -ms-box-shadow:inset 0 0 5px #666;
     box-shadow:inset 0 0 5px #666;
     font-weight:bold;
-    background-image: url("../assets/img/hindcover2.jpg");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/hindcover2.jpg");
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;              /* optional, center the image */
 }
 
 #page1{
-    background-image: url("../assets/img/Appetizers-New.jpg");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/Appetizers-New.jpg");
 }
 #page2{
-    background-image: url("../assets/img/menu_page_appetizers1.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_appetizers1.png");
 }
 #page3{
-    background-image: url("../assets/img/menu_page_appetizers2.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_appetizers2.png");
 }
 #page4{
-    background-image: url("../assets/img/Drinks-New.jpg");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/Drinks-New.jpg");
 }
 #page5{
-    background-image: url("../assets/img/menu_page_drinks1.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_drinks1.png");
 }
 #page6{
-    background-image: url("../assets/img/menu_page_drinks2.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_drinks2.png");
 }
 #page7{
-    background-image: url("../assets/img/MainCourses-New.jpg");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/MainCourses-New.jpg");
 }
 #page8{
-    background-image: url("../assets/img/menu_page_maincourses1.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_maincourses1.png");
 }
 #page9{
-    background-image: url("../assets/img/menu_page_maincourses2.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_maincourses2.png");
 }
 #page10{
-    background-image: url("../assets/img/menu_page_maincourses3.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_maincourses3.png");
 }
 #page11{
-    background-image: url("../assets/img/Desserts-New.jpg");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/Desserts-New.jpg");
 }
 #page12{
-    background-image: url("../assets/img/menu_page_desserts1.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_desserts1.png");
 }
 #page13{
-    background-image: url("../assets/img/menu_page_desserts2.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_desserts2.png");
 }
 #page14{
-    background-image: url("../assets/img/menu_page_desserts3.png");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/menu_page_desserts3.png");
 }
 .defaultpage{
-    background-image: url("../assets/img/page.jpg");
+    background-image: url("https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/page.jpg");
 }
 /*======================================================================*/
