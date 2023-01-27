@@ -120,7 +120,7 @@ body{
 }
 #outside{
     z-index: 4;
-    background-image: url('https://github.com/kngazures/restaurant.github.io/tree/main/assets/vid/outside.gif');
+    background-image: url('https://github.com/kngazures/restaurant.github.io/blob/main/assets/vid/outside.gif?raw=true');
 }
 #reception{
     z-index: 3;
