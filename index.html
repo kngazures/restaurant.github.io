@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+<head>
+<link href="css/styles.css" rel="stylesheet" />
+<link href="https://fonts.cdnfonts.com/css/medieval-scribish" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=MedievalSharp" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/turnjs4/lib/turn.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <div id="movie">
+        <div class="clickable scene" id="intro"></div>
+
+        <div class="scene" id="outside">
+            <img class="clickable" id="door" src="../assets/img/door.png"/>
+        </div>
+
+        <!-- WELCOME TO THE STEAMEDE HAMME, HOW MAY I SERVE YOU? -->
+        <div class="clickable scene" id="reception">
+            <video autoplay muted loop id="receptionAmbient">
+                <source src="../assets/vid/reception.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="scene" id="dininghall">
+            <img class="clickable" id="bowl" src="../assets/img/bowl.png"/>
+            <video autoplay muted loop id="diningHallAmbient" style="width:100%;">
+                <source src="../assets/vid/dining-hall.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="scene" id="table">
+            <div id="flipbook">
+                <div class="hard"></div>
+                <div class="hard hind"></div>
+                <div id="page1"></div>
+                <div id="page2"></div>
+                <div id="page3"></div>
+                <div class="defaultpage"></div>
+                <div id="page4"></div>
+                <div id="page5"></div>
+                <div id="page6"></div>
+                <div class="defaultpage"></div>
+                <div id="page7"></div>
+                <div id="page8"></div>
+                <div id="page9"></div>
+                <div id="page10"></div>
+                <div id="page11"></div>
+                <div id="page12"></div>
+                <div id="page13"></div>
+                <div id="page14"></div>
+                <div class="hard hind"></div>
+                <div class="hard hard-end"></div>
+            </div>
+        </div>
+    </div>
+    
+
+<script type="text/javascript">
+    let currentScene = null;
+    let movie = document.getElementById("movie");
+    
+    function delay(time) {
+      return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    async function fadein() {
+        await delay(3000);
+        movie.style.animation = "fade-in 2s forwards";
+    }
+    function fadeout() {
+        movie.style.animation = "fade-out 2s forwards";
+    }
+    async function switchScene() {
+        await delay(3000);
+        let current_index = $(currentScene).css("z-index");
+        $(currentScene).css('z-index', current_index-6);
+    }
+    
+    let the_end = false;
+    $('.clickable').click(function() {
+        if (!the_end){
+            if ($(this).is("#door") || $(this).is("#bowl")) {
+                currentScene = $(this).parent();
+                $(this).css('z-index', $(this).css("z-index")-6);
+            }
+            else{
+                currentScene = $(this);
+            }
+            fadeout();
+        }
+        
+    });
+    
+    movie.addEventListener("animationend", () => { 
+        switchScene(currentScene);
+        fadein();
+    });
+    
+    let audio_wind = null;
+    let audio_door = null;
+    let audio_walking = null;
+    let audio_snow = null;
+    let audio_fireplace = null;
+    let audio_public = null;
+    let audio_muffled_public = null;
+    let audio_music = null;
+    let audio_muffled_music = null;
+    let audio_creak = null;
+    let audio_chair_pull = null;
+    
+    const intro = document.getElementById('intro');
+    const door = document.getElementById('door');
+    const reception = document.getElementById('reception');
+    const bowl = document.getElementById('bowl');
+    const diningtable = document.getElementById('table');
+    
+    intro.addEventListener('click', (e) => {
+        play_wind(); 
+        intro.style.pointerEvents = "none";
+        outside.style.pointerEvents = "auto";
+    })
+    
+    door.addEventListener('click', (e) => {
+        walking_snow(); 
+        door.style.pointerEvents = "none";
+        reception.style.pointerEvents = "auto";
+    })
+    
+    reception.addEventListener('click', (e) => {
+        away_fire();
+        walking_floor();  
+        reception.style.pointerEvents = "none";
+        bowl.style.pointerEvents = "auto";
+    })
+    
+    bowl.addEventListener('click', (e) => {
+        focus();
+        bowl.style.pointerEvents = "none";
+        diningtable.style.pointerEvents = "auto";
+        the_end = true;
+    })
+    
+    function play_wind(){
+        audio_wind = new Audio('../assets/snd/winter_wind.mp3');
+        audio_wind.volume = 0.1;
+        audio_wind.loop = true;
+        audio_wind.play();
+        
+        audio_public = new Audio('../assets/snd/crowd.mp3');
+        audio_muffled_public = new Audio('../assets/snd/muffled_crowd.mp3');
+        audio_music = new Audio('../assets/snd/music.mp3');
+        audio_muffled_music = new Audio('../assets/snd/muffled_music.mp3');
+        
+        audio_public.volume = 0;
+        audio_muffled_public.volume = 0.5;
+        audio_music.volume = 0;
+        audio_muffled_music.volume = 0.5;
+        
+        audio_public.loop = true;
+        audio_muffled_public.loop = true;
+        audio_music.loop = true;
+        audio_muffled_music.loop = true;
+        
+        audio_public.play();
+        audio_muffled_public.play();
+        audio_music.play();
+        audio_muffled_music.play();
+    }
+    function stop_wind(){
+        audio_wind.pause();
+        play_open_door();
+    }
+    function start_fire(){
+        audio_fireplace = new Audio('../assets/snd/fireplace.mp3');
+        audio_fireplace.loop = true;
+        audio_fireplace.volume = 0.2;
+        audio_fireplace.play();
+    }
+    function away_fire(){
+        audio_fireplace.volume = 1;
+    }
+    function play_open_door(){
+        audio_door = new Audio('../assets/snd/door_open.mp3');
+        audio_door.play();
+        audio_public.volume = 0.5;
+        audio_muffled_public.volume = 0;
+        audio_music.volume = 0.5;
+        audio_muffled_music.volume = 0;
+    }
+    function sitting(){
+        audio_creak = new Audio('../assets/snd/creak.mp3');
+        audio_creak.play();
+    }
+    function chair_pull(){
+        audio_chair_pull = new Audio('../assets/snd/chairpull.mp3');
+        audio_chair_pull.onended = function() {
+            sitting();
+        }; 
+        audio_chair_pull.play();
+    }
+    function walking_floor(){
+        audio_public.volume = 0.2;
+        audio_muffled_public.volume = 0;
+        audio_music.volume = 0.3;
+        audio_muffled_music.volume = 0;
+        
+        audio_walking = new Audio('../assets/snd/walkingnew.mp3');
+        audio_walking.onended = function() {
+            chair_pull();
+        }; 
+        audio_walking.play();
+    }
+    function walking_snow(){
+        audio_snow = new Audio('../assets/snd/snow.mp3');
+        audio_snow.onended = function() {
+            stop_wind(); 
+            start_fire();
+            //unmuffle_crowd();
+        }; 
+        audio_snow.play();  
+    }
+    function focus(){
+        audio_public.volume = 0.1;
+        audio_music.volume = 0.1;
+    }
+    
+    
+    function play(src) {
+        audio.pause();
+        audio.muted = false;
+        const source = document.createElement("source");
+        source.src = src;
+        audio.appendChild(source);
+        audio.currentTime = 0;
+        audio.play();
+    }
+    
+    function randomIntFromInterval(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+	$("#flipbook").turn({
+		width: 1300,
+		height: 900,
+		autoCenter: true
+	});
+    
+    $("#flipbook").bind("turn", function(event, page, view) { 
+        if (page == 1 || page == 2 || page == 19 || page == 20) {
+            let audio_hard = new Audio('../assets/snd/book_close_new.mp3');
+            audio_hard.play();
+        } else {
+            let snd_nmbr = randomIntFromInterval(1,5);
+            console.log(snd_nmbr);
+            let path = '../assets/snd/flip' + snd_nmbr.toString() + '.mp3';
+            console.log(path);
+            let audio_page = new Audio(path);
+            audio_page.play();
+        }
+    });
+    
+</script>
+</body>
+</html>
+
+<!--- \restaurant\assets\, front.jpg, page.jpg, restaurant.jpg, restaurant2.jpg ---> 
