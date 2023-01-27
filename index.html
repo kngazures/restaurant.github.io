@@ -12,7 +12,7 @@
         <div class="clickable scene" id="intro"></div>
 
         <div class="scene" id="outside">
-            <img class="clickable" id="door" src="https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/door.png"/>
+            <img class="clickable" id="door" src="https://github.com/kngazures/restaurant.github.io/blob/main/assets/img/door.png"/>
         </div>
 
         <!-- WELCOME TO THE STEAMEDE HAMME, HOW MAY I SERVE YOU? -->
@@ -23,7 +23,7 @@
         </div>
 
         <div class="scene" id="dininghall">
-            <img class="clickable" id="bowl" src="https://github.com/kngazures/restaurant.github.io/tree/main/assets/img/bowl.png"/>
+            <img class="clickable" id="bowl" src="https://github.com/kngazures/restaurant.github.io/blob/main/assets/img/bowl.png"/>
             <video autoplay muted loop id="diningHallAmbient" style="width:100%;">
                 <source src="https://github.com/kngazures/restaurant.github.io/blob/main/assets/vid/dining-hall.mp4?raw=true" type="video/mp4">
             </video>
@@ -141,15 +141,15 @@
     })
     
     function play_wind(){
-        audio_wind = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/winter_wind.mp3');
+        audio_wind = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/winter_wind.mp3');
         audio_wind.volume = 0.1;
         audio_wind.loop = true;
         audio_wind.play();
         
-        audio_public = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/crowd.mp3');
-        audio_muffled_public = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/muffled_crowd.mp3');
-        audio_music = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/music.mp3');
-        audio_muffled_music = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/muffled_music.mp3');
+        audio_public = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/crowd.mp3');
+        audio_muffled_public = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/muffled_crowd.mp3');
+        audio_music = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/music.mp3');
+        audio_muffled_music = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/muffled_music.mp3');
         
         audio_public.volume = 0;
         audio_muffled_public.volume = 0.5;
@@ -171,7 +171,7 @@
         play_open_door();
     }
     function start_fire(){
-        audio_fireplace = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/fireplace.mp3');
+        audio_fireplace = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/fireplace.mp3');
         audio_fireplace.loop = true;
         audio_fireplace.volume = 0.2;
         audio_fireplace.play();
@@ -180,7 +180,7 @@
         audio_fireplace.volume = 1;
     }
     function play_open_door(){
-        audio_door = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/door_open.mp3');
+        audio_door = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/door_open.mp3');
         audio_door.play();
         audio_public.volume = 0.5;
         audio_muffled_public.volume = 0;
@@ -188,11 +188,11 @@
         audio_muffled_music.volume = 0;
     }
     function sitting(){
-        audio_creak = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/creak.mp3');
+        audio_creak = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/creak.mp3');
         audio_creak.play();
     }
     function chair_pull(){
-        audio_chair_pull = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/chairpull.mp3');
+        audio_chair_pull = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/chairpull.mp3');
         audio_chair_pull.onended = function() {
             sitting();
         }; 
@@ -204,14 +204,14 @@
         audio_music.volume = 0.3;
         audio_muffled_music.volume = 0;
         
-        audio_walking = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/walkingnew.mp3');
+        audio_walking = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/walkingnew.mp3');
         audio_walking.onended = function() {
             chair_pull();
         }; 
         audio_walking.play();
     }
     function walking_snow(){
-        audio_snow = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/snow.mp3');
+        audio_snow = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/snow.mp3');
         audio_snow.onended = function() {
             stop_wind(); 
             start_fire();
@@ -243,11 +243,11 @@
     
     $("#flipbook").bind("turn", function(event, page, view) { 
         if (page == 1 || page == 2 || page == 19 || page == 20) {
-            let audio_hard = new Audio('https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/book_close_new.mp3');
+            let audio_hard = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/book_close_new.mp3');
             audio_hard.play();
         } else {
             let snd_nmbr = randomIntFromInterval(1,5);
-            let path = 'https://github.com/kngazures/restaurant.github.io/tree/main/assets/snd/flip' + snd_nmbr.toString() + '.mp3';
+            let path = 'https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/flip' + snd_nmbr.toString() + '.mp3';
             let audio_page = new Audio(path);
             audio_page.play();
         }
