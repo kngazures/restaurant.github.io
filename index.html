@@ -69,7 +69,7 @@
         await delay(3000);
         movie.style.animation = "fade-in 2s forwards";
     }
-    function fadeout() {
+    async function fadeout() {
         movie.style.animation = "fade-out 2s forwards";
     }
     async function switchScene() {
@@ -180,9 +180,10 @@
     function away_fire(){
         audio_fireplace.volume = 1;
     }
-    function play_open_door(){
+    async function play_open_door(){
         audio_door = new Audio('https://github.com/kngazures/restaurant.github.io/blob/main/assets/snd/door_open.mp3?raw=true');
         audio_door.play();
+        await delay(1000);
         audio_public.volume = 0.5;
         audio_muffled_public.volume = 0;
         audio_music.volume = 0.5;
